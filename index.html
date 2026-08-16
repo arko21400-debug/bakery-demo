@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sweet Crumbs Bakery</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #fffaf5;
+            color: #2b211b;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 250, 245, 0.95);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        nav h1 {
+            font-size: 26px;
+            letter-spacing: 1px;
+        }
+
+        nav h1 span {
+            color: #c56b3d;
+        }
+
+        nav a {
+            color: #2b211b;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #c56b3d;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 8% 60px;
+
+            background:
+                linear-gradient(
+                    rgba(40, 20, 10, 0.45),
+                    rgba(40, 20, 10, 0.55)
+                ),
+                url("https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=2000&q=80");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 650px;
+            color: white;
+        }
+
+        .hero h2 {
+            font-size: clamp(45px, 7vw, 80px);
+            line-height: 1;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #c56b3d;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            background: #a9552e;
+        }
+
+        /* GENERAL */
+
+        section {
+            padding: 90px 8%;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .title h2 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .title p {
+            color: #806f64;
+        }
+
+        /* PRODUCTS */
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .product {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-8px);
+        }
+
+        .product img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-info h3 {
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+
+        .product-info p {
+            color: #806f64;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            color: #c56b3d;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* ABOUT */
+
+        .about {
+            background: #f4e7dc;
+            text-align: center;
+        }
+
+        .about p {
+            max-width: 750px;
+            margin: auto;
+            line-height: 1.8;
+            color: #66564c;
+        }
+/* VISIT US */
+
+.visit {
+    background: #f4e7dc;
+}
+
+.visit-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.visit-card {
+    background: white;
+    padding: 35px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.visit-card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.visit-card p {
+    color: #806f64;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+        /* CONTACT */
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            margin: 15px 0 30px;
+            color: #806f64;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 25px;
+            text-align: center;
+            background: #2b211b;
+            color: #ddd;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            nav {
+                padding: 18px 5%;
+            }
+
+            nav div {
+                display: none;
+            }
+
+            section {
+                padding: 70px 5%;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+            }
+.visit-content {
+    grid-template-columns: 1fr;
+}
+            .hero {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .hero h2 {
+                font-size: 52px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <h1>
+            Sweet <span>Crumbs</span>
+        </h1>
+
+        <div>
+            <a href="#home">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <h2>
+                Baked Fresh.<br>
+                Made With Love.
+            </h2>
+
+            <p>
+                Fresh breads, delicious cakes and handmade treats
+                baked fresh every day.
+            </p>
+
+            <a href="#menu" class="button">
+                VIEW OUR MENU
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- MENU -->
+
+    <section id="menu">
+<section id="menu">
+
+    <div class="title">
+        <h2>Our Best Sellers</h2>
+        <p>Freshly baked favorites our customers love.</p>
+    </div>
+
+    <div class="products">
+
+        <div class="product">
+            <img
+                src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80"
+                alt="Chocolate Cake"
+            >
+
+            <div class="product-info">
+                <h3>Chocolate Cake</h3>
+
+                <p>
+                    Rich chocolate cake with creamy chocolate frosting.
+                </p>
+
+                <div class="price">₹599</div>
+
+                <a href="#contact" class="button">
+                    <a href="https://wa.me/919999999999?text=Hi%20Sweet%20Crumbs%2C%20I%20want%20to%20order%20a%20Butter%20Croissant." class="button" target="_blank">
+    ORDER NOW
+</a>
+            </div>
+        </div>
+
+
+        <div class="product">
+            <img
+                src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=80"
+                alt="Croissant"
+            >
+
+            <div class="product-info">
+                <h3>Butter Croissant</h3>
+
+                <p>
+                    Flaky, buttery and freshly baked every morning.
+                </p>
+
+                <div class="price">₹120</div>
+
+                <a href="#contact" class="button">
+                    <a href="https://wa.me/919999999999?text=Hi%20Sweet%20Crumbs%2C%20I%20want%20to%20order%20a%20Premium%20Cupcake." class="button" target="_blank">
+    ORDER NOW
+</a>
+            </div>
+        </div>
+
+
+        <div class="product">
+            <img
+                src="https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?auto=format&fit=crop&w=800&q=80"
+                alt="Cupcake"
+            >
+
+            <div class="product-info">
+                <h3>Premium Cupcake</h3>
+
+                <p>
+                    Soft vanilla cupcake with a creamy topping.
+                </p>
+
+                <div class="price">₹80</div>
+
+                <a href="#contact" class="button">
+                    <a href="https://wa.me/919999999999?text=Hi%20Sweet%20Crumbs%2C%20I%20want%20to%20order%20Chocolate%20Cookies." class="button" target="_blank">
+    ORDER NOW
+</a>
+            </div>
+        </div>
+
+
+        <div class="product">
+            <img
+                src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=800&q=80"
+                alt="Cookies"
+            >
+
+            <div class="product-info">
+                <h3>Chocolate Cookies</h3>
+
+                <p>
+                    Crispy outside, soft inside and loaded with chocolate.
+                </p>
+
+                <div class="price">₹150</div>
+
+                <a href="#contact" class="button">
+                    ORDER NOW
+                </a>
+            </div>
+        </div>
+
+
+        <div class="product">
+            <img
+                src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80"
+                alt="Fresh Bread"
+            >
+
+            <div class="product-info">
+                <h3>Fresh Bread</h3>
+
+                <p>
+                    Soft handmade bread baked fresh every morning.
+                </p>
+
+                <div class="price">₹60</div>
+
+                <a href="#contact" class="button">
+                    <a href="https://wa.me/919999999999?text=Hi%20Sweet%20Crumbs%2C%20I%20want%20to%20order%20Fresh%20Bread." class="button" target="_blank">
+    ORDER NOW
+</a>
+            </div>
+        </div>
+
+
+        <div class="product">
+            <img
+                src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=800&q=80"
+                alt="Donuts"
+            >
+
+            <div class="product-info">
+                <h3>Glazed Donuts</h3>
+
+                <p>
+                    Soft donuts covered with our delicious glaze.
+                </p>
+
+                <div class="price">₹70</div>
+
+                <a href="#contact" class="button">
+                    <a
+href="https://wa.me/919999999999?text=Hi%20Sweet%20Crumbs%2C%20I%20want%20to%20order%20Glazed%20Donuts." class="button" target="_blank">
+    ORDER NOW
+</a>
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+    <!-- ABOUT -->
+
+    <section class="about" id="about">
+
+        <div class="title">
+
+            <h2>Made Fresh Every Day</h2>
+
+        </div>
+
+        <p>
+            At Sweet Crumbs, we believe the best food starts with
+            quality ingredients and a lot of care. Every morning,
+            our bakers prepare fresh breads, cakes and pastries
+            for our customers.
+        </p>
+
+    </section>
+<section class="visit">
+
+    <div class="title">
+        <h2>Visit Sweet Crumbs</h2>
+        <p>Freshly baked treats are waiting for you.</p>
+    </div>
+
+    <div class="visit-content">
+
+        <div class="visit-card">
+            <h3>📍 Our Location</h3>
+            <p>
+                123 Main Street<br>
+                Hyderabad, Telangana
+            </p>
+
+            <a
+                href="https://www.google.com/maps"
+                target="_blank"
+                class="button">
+                GET DIRECTIONS
+            </a>
+        </div>
+
+        <div class="visit-card">
+            <h3>🕐 Opening Hours</h3>
+
+            <p>
+                Monday – Saturday<br>
+                8:00 AM – 9:00 PM
+            </p>
+
+            <p>
+                Sunday<br>
+                9:00 AM – 8:00 PM
+            </p>
+        </div>
+
+        <div class="visit-card">
+            <h3>📞 Contact</h3>
+
+            <p>
+                +91 99999 99999
+            </p>
+
+            <a
+                href="tel:+919999999999"
+                class="button">
+                CALL US
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- CONTACT -->
+
+    <section class="contact" id="contact">
+
+        <h2>Want Something Special?</h2>
+
+        <p>
+            Contact us for custom cakes, birthday orders and more.
+        </p>
+
+        <a
+            href="https://wa.me/919999999999"
+            class="button">
+            ORDER ON WHATSAPP
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2026 Sweet Crumbs Bakery
+
+    </footer>
+
+</body>
+</html>
